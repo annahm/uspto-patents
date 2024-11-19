@@ -55,7 +55,7 @@ Problematic zips:
 ```
 In the example above, for year 2024, week 46's zip file is missing which is represented by an index of 45.  The subsequent command to run to fix this would be:
 ```
-$ python --test 2024 --week 45
+$ python test.py --year 2024 --week 45
 ```
 ## Process Patents
 Once zip files are downloaded, where the APS and/or XML files are processed to extract specific data fields to generate CSV files.
