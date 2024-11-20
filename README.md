@@ -62,7 +62,22 @@ In addition, year 2020 week 02's zip file was found to be incomplete or corrupte
 $ python download.py --year 2020 --week 02
 ```
 ## Process Patents
-Once zip files are downloaded, raw APS and/or XML files can be processed to extract specific data fields to generate CSV files.
+Once zip files are downloaded, raw APS and/or XML files can be processed to extract specific data fields to generate CSV files. Here are the various options:
+```
+$ python test.py --help
+Usage:
+ python test.py --help
+ python test.py --year <a>
+ python test.py --year <a:b>
+ python test.py --year <a> --week <x>
+ python test.py --year <a> --week <x:y>
+ python test.py --year <a> --week <x> --patents <y:z>
+ python test.py --index <a>
+ python test.py --consolidate
+ python test.py --all
+ Use the index flag to determine values for an individual week or a week range. 
+```
+To process zip files for the year 2024, the command is:
 ```
 $ python test.py --year 2024
 ```
@@ -77,3 +92,4 @@ Note:  The ```move.sh``` bash script will move those files back to their appropr
 ## Caveats
 1) You (not the code) will determine what zipfiles to use for data extraction.  For example, if you choose to process patents from ```1997.zip``` as well as each of the weekly zip files (e.g., ```pba19970107_wk01.zip```, ```pba19970107_wk02.zip```, ```pba19970107_wk03.zip```, etc) you are going to get duplicates.
 2) Some of the weekly zip files have an "R1" extension.  The code defaults to processing the R1 weekly zip file (e.g, ```pgb20241029_wk44_r1.zip```) over it's original (e.g., ```pgb20241029_wk44.zip```).  This is based on a cursory comparison where the R1 example excluded patents that were withdrawn.
+3) Processing zip files for a given year will use weekly zip files (e.g, ```pba19970107_wk01.zip```) instead of the year file (e.g., ```1997.zip```) if one exists.
